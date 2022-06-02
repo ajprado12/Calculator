@@ -23,7 +23,8 @@ storageSave.addEventListener("click", (e) => {
 });
 
 clearDisplayButton.addEventListener("click", (e) => {
-  document.getElementById("numberBox").innerHTML = "0";
+  let display = document.getElementById("numberBox");
+  display.innerHTML = "0";
 });
 
 numButtons.forEach((numberValue) => {
@@ -78,6 +79,21 @@ function addingOperatorToLastNumber(e) {
     document.getElementById("numberBox").value = operator;
   }
 }
+// function addingOperatorToRecallNumber(e) {
+//   e.preventDefault();
+//   const op = e.target.value;
+//   console.log(op);
+//   console.log("e parameter", e.target.value);
+//   if (firstNumber != "" && op != "" && secondNumber != "") {
+//     firstNumber = evaluation().toFixed(3);
+//     operator = firstNumber + op;
+//     secondNumber = "";
+//     console.log(operator);
+//   } else {
+//     operator = firstNumber + op;
+//     document.getElementById("numberBox").value = operator;
+//   }
+// }
 
 function displayEqualAnswer() {
   var newResult = evaluation();

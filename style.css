@@ -7,9 +7,10 @@
   position: absolute;
   top: 20%;
   left: 40%;
-  border: 10px solid black;
+  border: 8px solid black;
   border-radius: 15px;
   font-weight: bolder;
+  background-color: greenyellow;
 }
 
 .container > * {
@@ -18,4 +19,14 @@
 
 #clearButton {
   flex-grow: inherit;
+  background-color: red;
+}
+
+.numButtons, .operatorButtons, .equalbutton, .memoryclearbutton, .memorysavebutton, .memoryRecallbutton  {
+    row-gap: 10px;
+    background-color: aqua;
+}
+
+body {
+    background-color: navy;
 }
