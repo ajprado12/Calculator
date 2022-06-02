@@ -2,31 +2,45 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  max-width: 330px;
-  height: 200px;
+  max-width: 370px;
+  height: 400px;
   position: absolute;
   top: 20%;
   left: 40%;
   border: 8px solid black;
   border-radius: 15px;
   font-weight: bolder;
-  background-color: greenyellow;
+  background-image: linear-gradient(180deg, lightblue, blue, lightblue);
 }
 
 .container > * {
   flex: 1 1 110px;
 }
 
-#clearButton {
-  flex-grow: inherit;
-  background-color: red;
+#numberBox {
+    max-height: 50px;
 }
 
-.numButtons, .operatorButtons, .equalbutton, .memoryclearbutton, .memorysavebutton, .memoryRecallbutton  {
-    row-gap: 10px;
-    background-color: aqua;
+#clearButton {
+  background-color: red;
+  max-width: 25%;
 }
+
+.container .numButtons, .operatorButtons, .equalbutton, .memoryclearbutton, .memorysavebutton, .memoryRecallbutton  {
+    row-gap: 10px;
+    justify-content: center;
+    background-color: darkturquoise;
+    border-radius: 180px;
+    
+
+}
+.numButtons:hover, .operatorButtons:hover, .equalbutton:hover, .memoryclearbutton:hover, .memorysavebutton:hover, .memoryRecallbutton:hover  {
+   background-color: whitesmoke ;
+
+}
+
 
 body {
-    background-color: navy;
+    background-color: whitesmoke;
 }
+
