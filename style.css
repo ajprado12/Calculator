@@ -2,14 +2,18 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  max-width: 170px;
+  max-width: 330px;
+  height: 200px;
   position: absolute;
-  top: 30%;
+  top: 20%;
   left: 40%;
+  border: 10px solid black;
+  border-radius: 15px;
+  font-weight: bolder;
 }
 
 .container > * {
-  flex: 1 1 50px;
+  flex: 1 1 110px;
 }
 
 #clearButton {
