@@ -3,7 +3,7 @@ let equBtn = document.querySelector("#equals");
 let numButtons = document.querySelectorAll(".numButtons");
 let operatorButtons = document.querySelectorAll(".operatorButtons");
 let display = document.getElementById("numberBox");
-let clearDisplayButton = document.getElementById("clearButton");
+let resetDisplayButtonToZero = document.getElementById("resetButton");
 let periodButton = document.getElementById("period");
 let memRecall = document.getElementById("memRecall");
 let storageClear = document.getElementById("storageClear");
@@ -18,14 +18,9 @@ memRecall.addEventListener("click", resultMemorySave);
 
 storageClear.addEventListener("click", clearStorage);
 
-storageSave.addEventListener("click", (e) => {
-  localStorage.setItem("Memory", document.getElementById("numberBox").value);
-});
+storageSave.addEventListener("click", saveStorage);
 
-clearDisplayButton.addEventListener("click", (e) => {
-  let display = document.getElementById("numberBox");
-  display.innerHTML = "0";
-});
+resetDisplayButtonToZero.addEventListener("click", resetToZero);
 
 numButtons.forEach((numberValue) => {
   numberValue.addEventListener("click", addingNumbersToCalculator);
@@ -37,15 +32,15 @@ operatorButtons.forEach((operatorValue) => {
 
 equBtn.addEventListener("click", () => {
   displayEqualAnswer();
-  //   resultMemorySave();
 });
 
-// function clearDisplay () {
-//    document.getElementById('numberBox').innerHTML = "0";
-
-//  console.log("clear pressed");
-//     }
-
+function resetToZero (e) {
+    e.preventDefault();
+    if (document.getElementById("numberBox").value !== "") {
+    // firstNumber = 0;
+    location.reload();
+    }
+}
 function clearStorage() {
   localStorage.clear();
 }
@@ -69,7 +64,7 @@ function addingOperatorToLastNumber(e) {
   const op = e.target.value;
   console.log(op);
   console.log("e parameter", e.target.value);
-  if (firstNumber != "" && op != "" && secondNumber != "") {
+    if (firstNumber != "" && op != "" && secondNumber != "") {
     firstNumber = evaluation().toFixed(3);
     operator = firstNumber + op;
     secondNumber = "";
@@ -100,12 +95,20 @@ function displayEqualAnswer() {
   firstNumber = newResult;
   document.getElementById("numberBox").value = newResult.toFixed(3);
   secondNumber = "";
+//   while (firstNumber[firstNumber.length-1] ==="0" && firstNumber[firstNumber.length-1] ===".") {
+//       firstNumber = firstNumber.slice(0, -1)
+//       if (firstNumber[firstNumber.length-1] !=="0") {break;}
+//         document.getElementById("numberBox").value = firstNumber;
+
+// }
 }
 
 function resultMemorySave() {
-  var savedNumber = localStorage.getItem("Memory");
+  const savedNumber = localStorage.getItem("Memory");
   document.getElementById("numberBox").value = savedNumber;
-  console.log(savedNumber);
+}
+function saveStorage () {
+    localStorage.setItem("Memory", document.getElementById("numberBox").value);
 }
 
 function evaluation() {

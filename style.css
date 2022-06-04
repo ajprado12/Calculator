@@ -10,7 +10,7 @@
   border: 8px solid black;
   border-radius: 15px;
   font-weight: bolder;
-  background-image: linear-gradient(180deg, lightblue, blue, lightblue);
+  background-image: linear-gradient(180deg, lightblue, lightblue, purple);
 }
 
 .container > * {
@@ -19,9 +19,10 @@
 
 #numberBox {
     max-height: 50px;
+    text-align: right;
 }
 
-#clearButton {
+#resetButton {
   background-color: red;
   max-width: 25%;
 }
@@ -30,12 +31,15 @@
     row-gap: 10px;
     justify-content: center;
     background-color: darkturquoise;
-    border-radius: 180px;
+    border-radius: 5px;
+    padding: 9px;
+    font-weight: bolder;
+    font-size: larger;
     
 
 }
 .numButtons:hover, .operatorButtons:hover, .equalbutton:hover, .memoryclearbutton:hover, .memorysavebutton:hover, .memoryRecallbutton:hover  {
-   background-color: whitesmoke ;
+   background-color: transparent ;
 
 }
 
