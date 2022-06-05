@@ -20,7 +20,10 @@ storageClear.addEventListener("click", clearStorage);
 
 storageSave.addEventListener("click", saveStorage);
 
-resetDisplayButtonToZero.addEventListener("click", resetToZero);
+resetDisplayButtonToZero.addEventListener("click", () => {
+  resetToZero();
+  cChangeToCe();
+});
 
 numButtons.forEach((numberValue) => {
   numberValue.addEventListener("click", addingNumbersToCalculator);
@@ -34,12 +37,18 @@ equBtn.addEventListener("click", () => {
   displayEqualAnswer();
 });
 
-function resetToZero (e) {
-    e.preventDefault();
-    if (document.getElementById("numberBox").value !== "") {
+function resetToZero() {
+  if (document.getElementById("numberBox").value !== "") {
     // firstNumber = 0;
     location.reload();
-    }
+  }
+}
+
+function cChangeToCe() {
+  const buttonText = document.getElementById("resetButton");
+  if (buttonText.innerText === "C") {
+    buttonText.innerText = "CE";
+  }
 }
 function clearStorage() {
   localStorage.clear();
@@ -64,7 +73,7 @@ function addingOperatorToLastNumber(e) {
   const op = e.target.value;
   console.log(op);
   console.log("e parameter", e.target.value);
-    if (firstNumber != "" && op != "" && secondNumber != "") {
+  if (firstNumber != "" && op != "" && secondNumber != "") {
     firstNumber = evaluation().toFixed(3);
     operator = firstNumber + op;
     secondNumber = "";
@@ -74,41 +83,30 @@ function addingOperatorToLastNumber(e) {
     document.getElementById("numberBox").value = operator;
   }
 }
-// function addingOperatorToRecallNumber(e) {
-//   e.preventDefault();
-//   const op = e.target.value;
-//   console.log(op);
-//   console.log("e parameter", e.target.value);
-//   if (firstNumber != "" && op != "" && secondNumber != "") {
-//     firstNumber = evaluation().toFixed(3);
-//     operator = firstNumber + op;
-//     secondNumber = "";
-//     console.log(operator);
-//   } else {
-//     operator = firstNumber + op;
-//     document.getElementById("numberBox").value = operator;
-//   }
-// }
 
 function displayEqualAnswer() {
   var newResult = evaluation();
   firstNumber = newResult;
-  document.getElementById("numberBox").value = newResult.toFixed(3);
   secondNumber = "";
-//   while (firstNumber[firstNumber.length-1] ==="0" && firstNumber[firstNumber.length-1] ===".") {
-//       firstNumber = firstNumber.slice(0, -1)
-//       if (firstNumber[firstNumber.length-1] !=="0") {break;}
-//         document.getElementById("numberBox").value = firstNumber;
-
-// }
+  while (
+    newResult[newResult.length - 1] === "0" &&
+    newResult[newResult.length - 1] === "."
+  ) {
+    newResult = newResult.slice(0, -1);
+    if (newResult[newResult.length - 1] !== "0") {
+      break;
+    }
+  }
+  document.getElementById("numberBox").value = newResult.toFixed(3);
 }
 
 function resultMemorySave() {
   const savedNumber = localStorage.getItem("Memory");
   document.getElementById("numberBox").value = savedNumber;
+  firstNumber = "";
 }
-function saveStorage () {
-    localStorage.setItem("Memory", document.getElementById("numberBox").value);
+function saveStorage() {
+  localStorage.setItem("Memory", document.getElementById("numberBox").value);
 }
 
 function evaluation() {

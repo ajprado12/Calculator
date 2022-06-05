@@ -3,10 +3,10 @@
   flex-wrap: wrap;
   align-items: center;
   max-width: 370px;
-  height: 400px;
+  max-height: 400px;
   position: absolute;
   top: 20%;
-  left: 40%;
+  left: 2%;
   border: 8px solid black;
   border-radius: 15px;
   font-weight: bolder;
