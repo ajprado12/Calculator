@@ -20,12 +20,12 @@
     text-align: right;
     height:50px;
     font-size: 25px;
-    max-width: 200px;
+    max-width: 270px;
     border-radius: 5px;
 }
 #resetButton {
   background-color: red;
-  max-width: 47%;
+  max-width: 27%;
 }
 #resetButton:hover {
     background-color: transparent;

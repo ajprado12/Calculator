@@ -13,6 +13,7 @@ let operator = "";
 let secondNumber = "";
 let number = "";
 let expression = "";
+let newResult = "";
 
 memRecall.addEventListener("click", resultMemorySave);
 
@@ -102,6 +103,7 @@ function displayEqualAnswer() {
   }
   firstNumber = "";
   document.getElementById("numberBox").value = newResult;
+  newResult = "";
 }
 
 function resultMemorySave() {
