@@ -56,7 +56,6 @@ function clearStorage() {
 
 function addingNumbersToCalculator(e) {
   e.preventDefault();
-  console.log("e parameter", e.target.value);
   if (firstNumber != "" && operator != "") {
     secondNumber = secondNumber + e.target.value;
     expression = operator + secondNumber;
@@ -64,21 +63,16 @@ function addingNumbersToCalculator(e) {
   } else {
     firstNumber = firstNumber + e.target.value;
     document.getElementById("numberBox").value = firstNumber;
-    console.log(firstNumber);
   }
 }
 
 function addingOperatorToLastNumber(e) {
   e.preventDefault();
   const op = e.target.value;
-  console.log(op);
-  console.log("e parameter", e.target.value);
   if (firstNumber != "" && op != "" && secondNumber != "") {
     firstNumber = evaluation();
     operator = firstNumber + op;
     secondNumber = "";
-    console.log(operator);
-    console.log(secondNumber);
   } else {
     operator = firstNumber + op;
     document.getElementById("numberBox").value = op;
@@ -109,7 +103,6 @@ function displayEqualAnswer() {
 function resultMemorySave() {
   let savedNumber = localStorage.getItem("Memory");
   document.getElementById("numberBox").value = savedNumber;
-  //   firstNumber = "";
   secondNumber = "";
 }
 function saveStorage() {

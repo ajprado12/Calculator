@@ -4,9 +4,9 @@
   align-items: center;
   max-width: 370px;
   max-height: 400px;
-  position: absolute;
+  position: fixed;
   top: 20%;
-  left: 2%;
+  width: 100%;
   border: 8px solid black;
   border-radius: 15px;
   font-weight: bolder;
@@ -16,33 +16,42 @@
   flex: 1 1 110px;
 }
 #numberBox {
-    /* max-height: 100px; */
-    text-align: right;
-    height:50px;
-    font-size: 25px;
-    max-width: 270px;
-    border-radius: 5px;
+  text-align: right;
+  height: 50px;
+  font-size: 25px;
+  max-width: 270px;
+  border-radius: 5px;
 }
 #resetButton {
   background-color: red;
   max-width: 27%;
 }
 #resetButton:hover {
-    background-color: transparent;
+  background-color: transparent;
 }
-.container .numButtons, .operatorButtons, .equalbutton, .memoryclearbutton, .memorysavebutton, .memoryRecallbutton  {
-    row-gap: 10px;
-    justify-content: center;
-    background-color: darkturquoise;
-    border-radius: 5px;
-    padding: 9px;
-    font-weight: bolder;
-    font-size: large;
+.container .numButtons,
+.operatorButtons,
+.equalbutton,
+.memoryclearbutton,
+.memorysavebutton,
+.memoryRecallbutton {
+  row-gap: 10px;
+  justify-content: center;
+  background-color: darkturquoise;
+  border-radius: 5px;
+  padding: 9px;
+  font-weight: bolder;
+  font-size: large;
 }
-.numButtons:hover, .operatorButtons:hover, .equalbutton:hover, .memoryclearbutton:hover, .memorysavebutton:hover, .memoryRecallbutton:hover  {
-   background-color: transparent ;
+.numButtons:hover,
+.operatorButtons:hover,
+.equalbutton:hover,
+.memoryclearbutton:hover,
+.memorysavebutton:hover,
+.memoryRecallbutton:hover {
+  background-color: transparent;
 }
 body {
-    background-color: whitesmoke;
+  background-color: whitesmoke;
+  margin-left: 0%;
 }
-
