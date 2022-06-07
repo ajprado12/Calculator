@@ -39,7 +39,6 @@ equBtn.addEventListener("click", () => {
 
 function resetToZero() {
   if (document.getElementById("numberBox").value !== "") {
-    // firstNumber = 0;
     location.reload();
   }
 }
@@ -60,7 +59,7 @@ function addingNumbersToCalculator(e) {
   if (firstNumber != "" && operator != "") {
     secondNumber = secondNumber + e.target.value;
     expression = operator + secondNumber;
-    document.getElementById("numberBox").value = expression;
+    document.getElementById("numberBox").value = secondNumber;
   } else {
     firstNumber = firstNumber + e.target.value;
     document.getElementById("numberBox").value = firstNumber;
@@ -74,13 +73,14 @@ function addingOperatorToLastNumber(e) {
   console.log(op);
   console.log("e parameter", e.target.value);
   if (firstNumber != "" && op != "" && secondNumber != "") {
-    firstNumber = evaluation().toFixed(3);
+    firstNumber = evaluation();
     operator = firstNumber + op;
     secondNumber = "";
     console.log(operator);
+    console.log(secondNumber);
   } else {
     operator = firstNumber + op;
-    document.getElementById("numberBox").value = operator;
+    document.getElementById("numberBox").value = op;
   }
 }
 
@@ -96,14 +96,19 @@ function displayEqualAnswer() {
     if (newResult[newResult.length - 1] !== "0") {
       break;
     }
+    if (newResult[newResult.length - 3] === ".") {
+      break;
+    }
   }
-  document.getElementById("numberBox").value = newResult.toFixed(3);
+  firstNumber = "";
+  document.getElementById("numberBox").value = newResult;
 }
 
 function resultMemorySave() {
-  const savedNumber = localStorage.getItem("Memory");
+  let savedNumber = localStorage.getItem("Memory");
   document.getElementById("numberBox").value = savedNumber;
-  firstNumber = "";
+  //   firstNumber = "";
+  secondNumber = "";
 }
 function saveStorage() {
   localStorage.setItem("Memory", document.getElementById("numberBox").value);

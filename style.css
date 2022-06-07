@@ -12,21 +12,24 @@
   font-weight: bolder;
   background-image: linear-gradient(180deg, lightblue, lightblue, purple);
 }
-
 .container > * {
   flex: 1 1 110px;
 }
-
 #numberBox {
-    max-height: 50px;
+    /* max-height: 100px; */
     text-align: right;
+    height:50px;
+    font-size: 25px;
+    max-width: 200px;
+    border-radius: 5px;
 }
-
 #resetButton {
   background-color: red;
-  max-width: 25%;
+  max-width: 47%;
 }
-
+#resetButton:hover {
+    background-color: transparent;
+}
 .container .numButtons, .operatorButtons, .equalbutton, .memoryclearbutton, .memorysavebutton, .memoryRecallbutton  {
     row-gap: 10px;
     justify-content: center;
@@ -34,16 +37,11 @@
     border-radius: 5px;
     padding: 9px;
     font-weight: bolder;
-    font-size: larger;
-    
-
+    font-size: large;
 }
 .numButtons:hover, .operatorButtons:hover, .equalbutton:hover, .memoryclearbutton:hover, .memorysavebutton:hover, .memoryRecallbutton:hover  {
    background-color: transparent ;
-
 }
-
-
 body {
     background-color: whitesmoke;
 }
